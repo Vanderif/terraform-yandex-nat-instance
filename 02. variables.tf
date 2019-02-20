@@ -1,69 +1,40 @@
 variable "azone" {
-  default = "ru-central1-с"
-}
-
-variable "project_name_prefix" {
   type = "string"
-  default = "tfdpl"
+  default = "ru-central1-a"
 }
 
-variable "master_name_prefix" {
+variable "nat_instance_name" {
   type = "string"
-  default = "master"
+  default = "nat-gateway"
 }
 
-variable "master_count" {
-  default = 1
+variable "nat_instance_cpu_count" {
+  default = 2
 }
 
-variable "master_cpu_count" {
-  default = 32
+variable "nat_instance_ram_size" {
+  default = 8
 }
 
-variable "worker_name_prefix" {
-  type = "string"
-  default = "node"
-}
-
-variable "worker_count" {
+variable "nat_instance_disk_size" {
   default = 15
 }
 
-variable "worker_cpu_count" {
-  default = 32
-}
-
-variable "worker_disk_size" {
-  default = 200
-}
-
-variable "master_scripts_list" {
+variable "nat_instance_script" {
   type = "list"
   default = [
-    "scripts/master.sh"
+    "scripts/nat.sh"
   ]
-}
-
-variable "worker_scripts_list" {
-  type = "list"
-  default = [
-    "scripts/worker.sh"
-  ]
-}
-
-variable "output_path" {
-  type = "string"
-  default = "output/"
 }
 
 variable "private_key_file" {
   type = "string"
-  default = "output/key.pem"
+  default = "key.pem"
 }
 
 variable "username" {
   type = "string"
-  default = "user"
+  default = "yc-user"
 }
 
 variable "token" {
